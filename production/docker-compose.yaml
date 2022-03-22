@@ -6,6 +6,8 @@ networks:
 services:
   loki:
     image: grafana/loki:2.4.2
+    labels:
+      shipyard.route: '/'
     ports:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
@@ -22,6 +24,8 @@ services:
 
   grafana:
     image: grafana/grafana:latest
+    labels:
+      shipyard.route: '/'
     ports:
       - "3000:3000"
     networks:
